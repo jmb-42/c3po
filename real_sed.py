@@ -242,8 +242,8 @@ def run_fits(starName):
     fitError = list()
     if totalInsts:
         for inst in totalInsts:
-            if sData[inst][fx] < satLims[inst]:
-            # if sData[inst][fx] < np.inf:
+            # if sData[inst][fx] < satLims[inst]: # Uncomment to exclude saturated vals
+            if sData[inst][fx] < np.inf: # Uncomment to use all vals
                 fitWaves += list(sData[inst][wa])
                 fitFlux  += list(sData[inst][fx])
                 fitError += list(sData[inst][er])
