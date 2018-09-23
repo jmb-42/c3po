@@ -27,6 +27,8 @@ from direcs import PATH, STAR_FILES, KURUCZ, NEXTGEN, IMG_DIR, INTERPS_DIR
 show = 1    # Show plots?
 save = 0    # Save plots to IMG_DIR ?
 
+saturation_limits = 0 # Exclude saturated measurements?
+
 # Grab file names from star files directory
 starList = pull_file_names(STAR_FILES)
 # Grab star names from file names
@@ -242,8 +244,12 @@ def run_fits(starName):
     fitError = list()
     if totalInsts:
         for inst in totalInsts:
-            # if sData[inst][fx] < satLims[inst]: # Uncomment to exclude saturated vals
-            if sData[inst][fx] < np.inf: # Uncomment to use all vals
+            if saturation_limits:
+                if sData[inst][fx] < satLims[inst]:
+                    fitWaves += list(sData[inst][wa])
+                    fitFlux  += list(sData[inst][fx])
+                    fitError += list(sData[inst][er])
+            else:
                 fitWaves += list(sData[inst][wa])
                 fitFlux  += list(sData[inst][fx])
                 fitError += list(sData[inst][er])
