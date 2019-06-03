@@ -8,5 +8,3 @@ KURUCZ      = PATH + 'kurucz/'                     # Dir with kurucz models
 NEXTGEN     = PATH + 'nextgen/'                    # Dir with nextgen models
 IMG_DIR     = PATH + 'Realistic SEDS/'             # Output dir for images
 INTERPS_DIR = PATH + 'Arrays/InterpGrainTemps/'    # Dir with temp arrays
-if 1:
-    pass
