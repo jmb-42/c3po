@@ -1,5 +1,8 @@
 # Directories (modify for your own system)
-PATH        = '/Users/lacc/Documents/Justin/c3po/' # Home dir of project folder
+import os
+
+PATH        = os.sep.join('/Users/lacc/Documents/Justin/c3po/'.split('/'))
+ # Home dir of project folder
 STAR_FILES  = PATH + 'liz stars/'               # Dir with star files
 KURUCZ      = PATH + 'kurucz/'                     # Dir with kurucz models
 NEXTGEN     = PATH + 'nextgen/'                    # Dir with nextgen models
